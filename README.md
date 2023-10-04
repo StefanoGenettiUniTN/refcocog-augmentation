@@ -1,3 +1,10 @@
-# refcocog-augmentation
+# RefCOCOg dataset augmentation
+### Contributors: Luca Mosetti, Stefano Genetti
+### Year 2023
 
-dataset csv: https://drive.google.com/drive/folders/1SE4enfXIeaoZ4Gw8PenNHdCHrKKTAlDU?usp=drive_link
+In [this GitHub repository](https://github.com/gekoramy/uni.deep-learning) we provide the code together with a report paper of our work **From words to bounding boxes: exploring visual grounding using CLIP**. In this latter, we face the problem usually referred to by the literature as *Referring expression comprehension* (REC). In this context the overall goal is to localize a target object in an image described by a referring expression phrased in natural language. In order to accomplish this challenging task we rely on the [CLIP (*Contrastive Language-Image Pre-training*)](https://arxiv.org/abs/2103.00020) pre-trained model as a starting point for transfer learning. The capabilities of this foundation model pose a starting point to design a joint embedding approach to solve the problem at hand. We have evaluated our proposed models on the commonly used [RefCOCOg dataset](https://arxiv.org/abs/1608.00272). **One of our contributions in this work is to provide three useful instances of the RefCOCOg dataset filled with the bounding boxes proposed by some well known object detection algorithms**:
+- [Yolov5](https://arxiv.org/abs/1803.01534) 
+- [Yolov8](https://arxiv.org/abs/1506.02640)
+- [DETR](https://arxiv.org/abs/2005.12872)
+
+We have decided to preprocess our entire dataset in order to fill it with the bounding boxes proposed by the aforementioned object detectors. In doing so we have considerably speeded up the overall computational execution without incurring any loss of generality. A single epoch without this preprocessing last 90 minutes on average. On the other hand, with this enhancement we complete an epoch iteration in 50 minutes. As a consequence of this, we have been able to make more experiments and to train our models on more data for a longer time. We believe that this preprocessing can be potentially applied on countless deep learning domains. Hence, as an important contribution we provide in this GitHub repository the code to compute this preprocessing *with whatever object detection algorithm*. Moreover, in [this Google Drive folder](https://drive.google.com/drive/folders/1SE4enfXIeaoZ4Gw8PenNHdCHrKKTAlDU?usp=drive_link), we have conveniently published `yolov5.csv`, `yolov8.csv` and `detr.csv` files including the results calculated by the three aforementioned object detectors.
